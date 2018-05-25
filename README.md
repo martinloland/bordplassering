@@ -1,0 +1,2 @@
+# bordplassering
+script for bordplassering
