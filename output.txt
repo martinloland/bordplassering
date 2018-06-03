@@ -26,6 +26,9 @@ TABLE 4
 	Benjamin Stavnar  Elveli
 	Beate Stavnar
 	Tore Morten Elveli
+	Jacob Stavnar Elveli
+	 Thor Haraldsen
+		ERROR ON RESERVED SPACES FOR benjamie@stud.ntnu.no: reserved=3, needs=5
 TABLE 5
 	Jostein Birkeland
 	John Apeland
@@ -262,8 +265,7 @@ TABLE 28
 	Espen Bjerke
 TABLE 29
 	Vegard Haraldseid
-	Jacob Stavnar Elveli
-	Thor Haraldsen
+		ERROR ON RESERVED SPACES FOR vegardharaldseid@gmail.com: reserved=3, needs=1
 	Mads Bakken Iddberg
 	Mette Bakken Iddberg
 	Bjørn Iddberg
@@ -271,3 +273,33 @@ TABLE 29
 	Christoffer Martinsen
 	Jan Martinsen
 	Monica Martinsen
+
+241 people has been seated
+Has not been seated:
+	torleibe@stud.ntnu.no
+	gautessl@stud.ntnu.no
+	aarekol@stud.ntnu.no
+	mathiasz@stud.ntnu.no
+	marirols@stud.ntnu.no
+	sondrevadheim@gmail.com
+	egilaasb@stud.ntnu.no
+	vasseljen@gmail.com
+	sunniva.hansen1@gmail.com
+	sondrba@stud.ntnu.no
+	andeng@stud.ntnu.no
+	knutegl@stud.ntnu.no
+	sondreor@stud.ntnu.no
+	odegaard.kristin@ntnu.no
+	andersmg@stud.ntnu.no
+	johanokv@stud.ntnu.no
+	henrikkd@stud.ntnu.no
+	sivertrh@stud.ntnu.no
+	jorgesal@stud.ntnu.no
+	lars.erik.bjerke@gmail.com
+	siverf@stud.ntnu.no
+	lars.eirik.birkeland@gmail.com
+	vetlef@stud.ntnu.no
+	anderstb@stud.ntnu.no
+	fredrik.thronaes@hotmail.com
+	kaarehl@stud.ntnu.no
+	almirp@stud.ntnu.no

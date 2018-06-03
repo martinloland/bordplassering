@@ -8,6 +8,8 @@ extra_student_name_first_col = 1
 extra_student_name_last_col = 2
 extra_folge_col = 4
 
+n_seated = 0
+
 def registration_dict():
     d = {}
     with open('normal.csv', 'r') as f:
@@ -22,7 +24,8 @@ def registration_dict():
                     if parts[col]:
                         folge.append(parts[col])
                 d.update({email:{'name':name.rstrip(),
-                                 'folge':folge}})
+                                 'folge':folge,
+                                 'seated':False}})
     with open('ekstra.csv', 'r') as f:
         for line in f:
             parts = line.rstrip().split(',')
@@ -70,7 +73,15 @@ def log(text):
         with open('output.txt', 'a') as out_file:
             out_file.write(text+'\n')
 
+def clear_output():
+    open('output.txt', 'w').close()
 
+def seat_person(text):
+    global n_seated
+    log(text)
+    n_seated = n_seated + 1
+
+clear_output()
 people = registration_dict()
 
 with open('plassering.csv', 'r') as f:
@@ -83,9 +94,11 @@ with open('plassering.csv', 'r') as f:
                 email = student['email'].rstrip()
                 reserved_spaces = student['n_people']
                 if email in people:
-                    log('\t'+people[email]['name'])
+                    seat_person('\t'+people[email]['name'])
+                    people[email].update({'seated':True})
+
                     for name in people[email]['folge']:
-                        log('\t'+name)
+                        seat_person('\t'+name)
 
                     if reserved_spaces is not len(people[email]['folge'])+1:
                         log('\t\tERROR ON RESERVED SPACES FOR {}: reserved={}, needs={}'
@@ -95,3 +108,10 @@ with open('plassering.csv', 'r') as f:
                     log('\t'+'Ansatte')
                 else:
                     log('\t\tERROR ON FINDING PERSON {}'.format(email))
+
+log('\n{} people has been seated'.format(n_seated))
+
+log('Has not been seated:')
+for key in people:
+    if not people[key]['seated']:
+        log('\t{}'.format(key))
