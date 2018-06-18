@@ -1,4 +1,4 @@
-email_cols = [1,3,5,7,9,11,13,15,17]
+email_cols = [1,3,5,7,9,11,13,15,17,19]
 normal_email_col = 3
 normal_student_name_first_col = 2
 normal_student_name_last_col = 1
@@ -88,17 +88,20 @@ with open('plassering.csv', 'r') as f:
     for line in f:
         if valid_line(line):
             d = table_dict(line)
-            log('TABLE {}'.format(d['table']))
+            log('\nBord {}'.format(d['table']))
+            total_bord_people = 0
             for student in d['guests']:
 
                 email = student['email'].rstrip()
                 reserved_spaces = student['n_people']
                 if email in people:
                     seat_person('\t'+people[email]['name'])
+                    total_bord_people = total_bord_people + 1
                     people[email].update({'seated':True})
 
                     for name in people[email]['folge']:
                         seat_person('\t'+name)
+                        total_bord_people = total_bord_people + 1
 
                     if reserved_spaces is not len(people[email]['folge'])+1:
                         log('\t\tERROR ON RESERVED SPACES FOR {}: reserved={}, needs={}'
@@ -106,8 +109,16 @@ with open('plassering.csv', 'r') as f:
 
                 elif email == 'ansatte':
                     log('\t'+'Ansatte')
+                    n_seated = n_seated + 8
+                    total_bord_people = 8
                 else:
                     log('\t\tERROR ON FINDING PERSON {}'.format(email))
+
+            # log('\n' * (25 - total_bord_people))
+            print('Bord {:<3}:{:>3} personer'.format(d['table'],
+                                                 total_bord_people))
+    print('\nTotalt: {} personer'.format(n_seated))
+
 
 log('\n{} people has been seated'.format(n_seated))
 
